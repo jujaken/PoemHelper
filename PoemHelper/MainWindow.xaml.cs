@@ -4,6 +4,7 @@ using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace PoemHelper
 {
@@ -174,6 +175,12 @@ namespace PoemHelper
 
                 e.Handled = true;
             }
+        }
+
+        private void ColorButton_SelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color> e)
+        {
+            Shadow.Foreground = new SolidColorBrush(e.NewValue);
+            Resources["CurrentMainColor"] = e.NewValue;
         }
     }
 }
