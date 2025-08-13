@@ -12,7 +12,7 @@ namespace PoemHelper
     /// </summary>
     public partial class MainWindow : Window
     {
-        private const string vowels = "ауиыэояюёе";
+        private const string vowels = "ауиыэояюёеа́у́и́ы́э́о́я́ю́е́";
         private const string defalutText = "Мимо ристалищ, капищ\nМимо храмов и баров";
 
         public MainWindow()
@@ -23,22 +23,24 @@ namespace PoemHelper
 
         private void Input_TextChanged(object sender, TextChangedEventArgs e)
         {
+            var idBuilder = new StringBuilder();
             var shadowBuilder = new StringBuilder();
             var statBuilder = new StringBuilder();
             var msgBuilder = new StringBuilder();
-
+            
             var numVowelsInLine = 0;
+            var id = 0;
 
             foreach (var line in Input.Text.Split('\n'))
             {
-                msgBuilder.Append('-');
+                idBuilder.AppendLine((++id).ToString());
                 foreach (var c in line)
                 {
                     if (vowels.Contains(char.ToLower(c)))
                     {
                         shadowBuilder.Append(c);
-                        msgBuilder.Append(c);
                         msgBuilder.Append('-');
+                        msgBuilder.Append(c);
                         numVowelsInLine++;
                     }
                     else
@@ -47,15 +49,25 @@ namespace PoemHelper
                     }
                 }
 
-                shadowBuilder.Append('\n');
-                statBuilder.AppendLine(numVowelsInLine.ToString());
+                if (numVowelsInLine == 0)
+                {
+                    statBuilder.AppendLine();
+                }
+                else
+                {
+                    msgBuilder.Append('-');
+                    statBuilder.AppendLine(numVowelsInLine.ToString());
+                }
+
+                shadowBuilder.AppendLine();
                 msgBuilder.AppendLine();
                 numVowelsInLine = 0;
             }
-            
+
             // странно, но почему-то нужно проверять. возможно, из-за дефолтного значения в конструкторе. Оставь, чтобы компилилось крч
             if (Shadow == null) return;
 
+            IdLine.Text = idBuilder.ToString();
             Shadow.Text = shadowBuilder.ToString();
             OutputStat.Text = statBuilder.ToString();
             OutputMsg.Text = msgBuilder.ToString();

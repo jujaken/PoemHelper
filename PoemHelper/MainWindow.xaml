@@ -46,26 +46,32 @@
                 <MenuItem x:Name="Minus" Header="-" Foreground="White" FontFamily="Cascadia Mono" FontSize="16" Click="Minus_Click"/>
             </Menu>
 
-            <Label x:Name="StatHeader" Content="Stat: 0" Foreground="White" Padding="8,1" FontFamily="Cascadia Mono" FontSize="16" Grid.Column="1" />
+            <Label x:Name="StatHeader" Content="Stat: 6" Foreground="White" Padding="8,1" FontFamily="Cascadia Mono" FontSize="16" Grid.Column="1" />
 
         </Grid>
 
-        <Grid Grid.Row="1">
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+            <Grid>
 
-            <TextBox x:Name="Input" Text="Жуля 💕" FontFamily="Cascadia Mono" FontSize="14" Foreground="White" Background="#333333" AcceptsReturn="True" TextWrapping="Wrap" TextChanged="Input_TextChanged" />
-            <TextBox x:Name="Shadow" Text=" у я 💕" Style="{StaticResource GlowingTextStyle}" FontFamily="Cascadia Mono" FontSize="14" Foreground="DeepSkyBlue" Background="Transparent" AcceptsReturn="True" TextWrapping="Wrap" Grid.Column="0" IsHitTestVisible="False" />
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-            <TextBlock x:Name="OutputStat" FontFamily="Cascadia Mono" Padding="5,0" FontSize="14" Background="#282828" Foreground="White" Grid.Column="1" TextAlignment="Center" />
-            <TextBlock x:Name="OutputMsg" FontFamily="Cascadia Mono" FontSize="14" Foreground="White" Grid.Column="2" Grid.ColumnSpan="2" />
+                <TextBlock x:Name="IdLine" Text="1" FontFamily="Cascadia Mono" Padding="5,1" FontSize="14" Background="#282828" Foreground="White" Grid.Column="0" TextAlignment="Center" />
 
+                <TextBox x:Name="Input" Text="Жуля 💕" FontFamily="Cascadia Mono" FontSize="14" Foreground="White" Background="#333333" Grid.Column="1" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled" AcceptsReturn="True" TextWrapping="Wrap" TextChanged="Input_TextChanged" />
+                <TextBox x:Name="Shadow" Text=" у я 💕" Style="{StaticResource GlowingTextStyle}" FontFamily="Cascadia Mono" FontSize="14" Foreground="DeepSkyBlue" Background="Transparent" AcceptsReturn="True" TextWrapping="Wrap" Grid.Column="1" IsHitTestVisible="False" />
 
-        </Grid>
+                <TextBlock x:Name="OutputStat" Text="3" FontFamily="Cascadia Mono" Padding="5,1" FontSize="14" Background="#282828" Foreground="White" Grid.Column="2" TextAlignment="Center" />
+                <TextBlock x:Name="OutputMsg" FontFamily="Cascadia Mono" FontSize="14" Foreground="White" Grid.Column="3" Grid.ColumnSpan="2" />
+
+            </Grid>
+
+        </ScrollViewer>
 
     </Grid>
 
