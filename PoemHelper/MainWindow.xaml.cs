@@ -13,7 +13,10 @@ namespace PoemHelper
     public partial class MainWindow : Window
     {
         private const string vowels = "ауиыэояюёеа́у́и́ы́э́о́я́ю́е́";
-        private const string defalutText = "Мимо ристалищ, капищ\nМимо храмов и баров";
+
+        // thx mr. Brodskiy
+        // https://www.culture.ru/poems/30448/piligrimy
+        private const string defalutText = "Мимо ристалищ, капищ\nМимо храмов и баров\n\n©Иосиф Бродский";
 
         public MainWindow()
         {
