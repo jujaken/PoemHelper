@@ -16,7 +16,7 @@ namespace PoemHelper
 
         // thx mr. Brodskiy
         // https://www.culture.ru/poems/30448/piligrimy
-        private const string defalutText = "Мимо ристалищ, капищ\nМимо храмов и баров\n\n©Иосиф Бродский";
+        private const string defalutText = "Мимо ристалищ, капищ\nМимо храмов и баров\n\n© Иосиф Бродский";
 
         public MainWindow()
         {
