@@ -93,6 +93,8 @@ namespace PoemHelper
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
+            if (Input.Text.Length == 0) return;
+
             var dialog = new SaveFileDialog()
             {
                 FileName = Input.Text.Trim().Split('\n', StringSplitOptions.RemoveEmptyEntries)[0],
