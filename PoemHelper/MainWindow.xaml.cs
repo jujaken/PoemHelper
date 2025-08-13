@@ -152,6 +152,9 @@ namespace PoemHelper
 
                 if (e.Key == Key.Subtract || e.Key == Key.OemMinus)
                     Minus_Click(sender, e);
+
+                if (e.Key == Key.S)
+                    Save_Click(sender, e);
             }
         }
 
