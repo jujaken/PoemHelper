@@ -126,6 +126,7 @@ namespace PoemHelper
         private void Plus_Click(object sender, RoutedEventArgs e)
         {
             if (Input.FontSize + 1 > 26) return;
+            IdLine.FontSize += 1;
             Input.FontSize += 1;
             Shadow.FontSize += 1;
             OutputMsg.FontSize += 1;
@@ -135,6 +136,7 @@ namespace PoemHelper
         private void Minus_Click(object sender, RoutedEventArgs e)
         {
             if (Input.FontSize - 1 < 4) return;
+            IdLine.FontSize -= 1;
             Input.FontSize -= 1;
             Shadow.FontSize -= 1;
             OutputMsg.FontSize -= 1;
