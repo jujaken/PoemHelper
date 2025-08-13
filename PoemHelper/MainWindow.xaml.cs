@@ -31,7 +31,7 @@ namespace PoemHelper
             var shadowBuilder = new StringBuilder();
             var statBuilder = new StringBuilder();
             var msgBuilder = new StringBuilder();
-            
+
             var numVowelsInLine = 0;
             var id = 0;
 
@@ -181,6 +181,18 @@ namespace PoemHelper
         {
             Shadow.Foreground = new SolidColorBrush(e.NewValue);
             Resources["CurrentMainColor"] = e.NewValue;
+        }
+
+        private void UseShadow_Checked(object sender, RoutedEventArgs e)
+        {
+            if (Shadow == null) return;
+            Shadow.Visibility = Visibility.Visible;
+        }
+
+        private void UseShadow_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (Shadow == null) return;
+            Shadow.Visibility = Visibility.Hidden;
         }
     }
 }

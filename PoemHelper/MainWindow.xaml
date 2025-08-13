@@ -82,6 +82,7 @@
                 <Button x:Name="Plus" Content="+" Foreground="White" FontFamily="Cascadia Mono" FontSize="16" Click="Plus_Click"/>
                 <Button x:Name="Minus" Content="-" Foreground="White" FontFamily="Cascadia Mono" FontSize="16" Click="Minus_Click"/>
                 <Grid Width="20"/>
+                <CheckBox x:Name="UseShadow" VerticalAlignment="Center" HorizontalAlignment="Center" Padding=".5" IsChecked="True" Checked="UseShadow_Checked" Unchecked="UseShadow_Unchecked"/>
                 <picker:ColorPicker x:Name="ColorButton" SelectedColor="DeepSkyBlue" Width="62" Height="16" SelectedColorChanged="ColorButton_SelectedColorChanged"/>
             </StackPanel>
 
