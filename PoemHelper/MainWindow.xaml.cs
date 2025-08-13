@@ -152,5 +152,18 @@ namespace PoemHelper
                     Minus_Click(sender, e);
             }
         }
+
+        private void ScrollViewer_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if (Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl))
+            {
+                if (e.Delta > 0)
+                    Plus_Click(sender, e);
+                else
+                    Minus_Click(sender, e);
+
+                e.Handled = true;
+            }
+        }
     }
 }
