@@ -70,6 +70,8 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
             <StackPanel Background="#111111" Orientation="Horizontal">
@@ -86,7 +88,9 @@
                 <picker:ColorPicker x:Name="ColorButton" SelectedColor="DeepSkyBlue" Width="62" Height="16" SelectedColorChanged="ColorButton_SelectedColorChanged"/>
             </StackPanel>
 
-            <Label x:Name="StatHeader" Content="Stat: 6" Foreground="White" FontFamily="Cascadia Mono" FontSize="16" Grid.Column="1" VerticalContentAlignment="Center" />
+            <Button x:Name="CloseFile" Padding="0,0,5,0" Content="×" Foreground="White" FontFamily="Cascadia Mono" FontSize="20" Grid.Column="1" Click="CloseFile_Click" Visibility="Collapsed"/>
+            <Label Padding="0,0,10,0" x:Name="SelectedFile" Content="" Foreground="White" FontFamily="Cascadia Mono" FontSize="14" Grid.Column="2" VerticalContentAlignment="Center" />
+            <Label x:Name="StatHeader" Content="Stat: 6" Foreground="White" FontFamily="Cascadia Mono" FontSize="14" Grid.Column="3" VerticalContentAlignment="Center" />
 
         </Grid>
 

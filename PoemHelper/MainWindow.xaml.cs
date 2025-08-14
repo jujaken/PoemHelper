@@ -18,6 +18,8 @@ namespace PoemHelper
         // thx mr. Brodskiy
         // https://www.culture.ru/poems/30448/piligrimy
         private const string defalutText = "Мимо ристалищ, капищ\nМимо храмов и баров\n\n© Иосиф Бродский";
+        private string? selectedFile;
+
 
         public MainWindow()
         {
@@ -94,6 +96,12 @@ namespace PoemHelper
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
+            if (selectedFile != null && File.Exists(selectedFile))
+            {
+                File.WriteAllText(selectedFile, Input.Text);
+                return;
+            }
+
             if (Input.Text.Length == 0) return;
 
             var dialog = new SaveFileDialog()
@@ -102,8 +110,12 @@ namespace PoemHelper
                 Filter = "Text format (.txt)|*.txt"
             };
 
-            if (dialog.ShowDialog() == true)
-                File.WriteAllText(dialog.FileName, Input.Text);
+            if (dialog.ShowDialog() != true) return;
+
+            File.WriteAllText(dialog.FileName, Input.Text);
+            selectedFile = dialog.FileName;
+            SelectedFile.Content = Path.GetFileName(selectedFile);
+            CloseFile.Visibility = Visibility.Visible;
         }
 
         private void SaveVowels_Click(object sender, RoutedEventArgs e)
@@ -193,6 +205,13 @@ namespace PoemHelper
         {
             if (Shadow == null) return;
             Shadow.Visibility = Visibility.Hidden;
+        }
+
+        private void CloseFile_Click(object sender, RoutedEventArgs e)
+        {
+            selectedFile = null;
+            SelectedFile.Content = null;
+            CloseFile.Visibility = Visibility.Collapsed;
         }
     }
 }
