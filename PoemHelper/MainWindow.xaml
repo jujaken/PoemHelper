@@ -58,7 +58,7 @@
 
     </Window.Resources>
 
-    <Grid Background="#222222">
+    <Grid Background="#FF1F1F1F">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -74,7 +74,7 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <StackPanel Background="#111111" Orientation="Horizontal">
+            <StackPanel Background="#FF111015" Orientation="Horizontal">
                 <Button x:Name="Save" Content="Save" Foreground="White" FontFamily="Cascadia Mono" FontSize="16" Click="Save_Click"/>
                 <Button x:Name="Load" Content="Load" Foreground="White" FontFamily="Cascadia Mono" FontSize="16" Click="Load_Click"/>
                 <Grid Width="10"/>
@@ -107,8 +107,8 @@
 
                 <TextBlock x:Name="IdLine" Text="1" FontFamily="Cascadia Mono" Padding="5,1" FontSize="14" Background="#282828" Foreground="White" Grid.Column="0" TextAlignment="Center" />
 
-                <TextBox x:Name="Input" Text="Жуля 💕" FontFamily="Cascadia Mono" FontSize="14" Foreground="White" Background="#333333" Grid.Column="1" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled" AcceptsReturn="True" TextWrapping="Wrap" TextChanged="Input_TextChanged" />
-                <TextBox x:Name="Shadow" Text=" у я 💕" Style="{StaticResource GlowingTextStyle}" FontFamily="Cascadia Mono" FontSize="14" Foreground="DeepSkyBlue" Background="Transparent" AcceptsReturn="True" TextWrapping="Wrap" Grid.Column="1" IsHitTestVisible="False" />
+                <TextBox x:Name="Input" Text="Жуля 💕" FontFamily="Cascadia Mono" FontSize="14" Foreground="White" Background="#FF333333" Grid.Column="1" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled" AcceptsReturn="True" TextWrapping="Wrap" TextChanged="Input_TextChanged" BorderBrush="{x:Null}" />
+                <TextBox x:Name="Shadow" Text=" у я 💕" Style="{StaticResource GlowingTextStyle}" FontFamily="Cascadia Mono" FontSize="14" Foreground="DeepSkyBlue" Background="Transparent" AcceptsReturn="True" TextWrapping="Wrap" Grid.Column="1" IsHitTestVisible="False" BorderBrush="{x:Null}" />
 
                 <TextBlock x:Name="OutputStat" Text="3" FontFamily="Cascadia Mono" Padding="5,1" FontSize="14" Background="#282828" Foreground="White" Grid.Column="2" TextAlignment="Center" />
                 <TextBlock x:Name="OutputMsg" FontFamily="Cascadia Mono" FontSize="14" Foreground="White" Grid.Column="3" Grid.ColumnSpan="2" />
