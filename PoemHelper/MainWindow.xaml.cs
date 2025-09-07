@@ -33,6 +33,7 @@ namespace PoemHelper
             var shadowBuilder = new StringBuilder();
             var statBuilder = new StringBuilder();
             var msgBuilder = new StringBuilder();
+            var shadowMsgBuilder = new StringBuilder();
 
             var numVowelsInLine = 0;
             var id = 0;
@@ -48,6 +49,7 @@ namespace PoemHelper
                         msgBuilder.Append('-');
                         msgBuilder.Append(c);
                         numVowelsInLine++;
+                        shadowMsgBuilder.Append(char.ToUpper(c) == c ? $" {c}" : "  ");
                     }
                     else
                     {
@@ -67,16 +69,19 @@ namespace PoemHelper
 
                 shadowBuilder.AppendLine();
                 msgBuilder.AppendLine();
+                shadowMsgBuilder.AppendLine();
                 numVowelsInLine = 0;
             }
 
             // странно, но почему-то нужно проверять. возможно, из-за дефолтного значения в конструкторе. Оставь, чтобы компилилось крч
             if (Shadow == null) return;
+            if (OutputMsgShadow == null) return;
 
             IdLine.Text = idBuilder.ToString();
             Shadow.Text = shadowBuilder.ToString();
             OutputStat.Text = statBuilder.ToString();
             OutputMsg.Text = msgBuilder.ToString();
+            OutputMsgShadow.Text = shadowMsgBuilder.ToString();
             StatHeader.Content = $"Stat: {Input.Text.Length}";
         }
 
@@ -149,6 +154,7 @@ namespace PoemHelper
             Shadow.FontSize += 1;
             OutputMsg.FontSize += 1;
             OutputStat.FontSize += 1;
+            OutputMsgShadow.FontSize += 1;
         }
 
         private void Minus_Click(object sender, RoutedEventArgs e)
@@ -159,6 +165,7 @@ namespace PoemHelper
             Shadow.FontSize -= 1;
             OutputMsg.FontSize -= 1;
             OutputStat.FontSize -= 1;
+            OutputMsgShadow.FontSize -= 1;
         }
 
         private void Window_KeyUp(object sender, KeyEventArgs e)
@@ -212,6 +219,16 @@ namespace PoemHelper
             selectedFile = null;
             SelectedFile.Content = null;
             CloseFile.Visibility = Visibility.Collapsed;
+        }
+
+        private void UseAccents_Checked(object sender, RoutedEventArgs e)
+        {
+            OutputMsgShadow.Visibility = Visibility.Visible;
+        }
+
+        private void UseAccents_Unchecked(object sender, RoutedEventArgs e)
+        {
+            OutputMsgShadow.Visibility = Visibility.Hidden;
         }
     }
 }

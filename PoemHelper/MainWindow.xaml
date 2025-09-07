@@ -12,8 +12,20 @@
     <Window.Resources>
 
         <Color x:Key="CurrentMainColor" R="0" G="191" B="255" />
-        
-        <Style x:Key="GlowingTextStyle" TargetType="TextBox">
+
+        <Style x:Key="GlowingTextStyleTextBlock" TargetType="TextBlock">
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect BlurRadius="6" 
+                               ShadowDepth="0"
+                               Opacity="1"
+                               Color="{Binding RelativeSource={RelativeSource AncestorType=TextBlock}, Path=Foreground.Color}"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+
+        <Style x:Key="GlowingTextStyleTextBox" TargetType="TextBox">
             <Setter Property="Effect">
                 <Setter.Value>
                     <DropShadowEffect BlurRadius="6" 
@@ -86,6 +98,9 @@
                 <Grid Width="20"/>
                 <CheckBox x:Name="UseShadow" VerticalAlignment="Center" HorizontalAlignment="Center" Padding=".5" IsChecked="True" Checked="UseShadow_Checked" Unchecked="UseShadow_Unchecked"/>
                 <picker:ColorPicker x:Name="ColorButton" SelectedColor="DeepSkyBlue" Width="62" Height="16" SelectedColorChanged="ColorButton_SelectedColorChanged"/>
+                <Grid Width="20"/>
+                <CheckBox x:Name="UseAccents" VerticalAlignment="Center" HorizontalAlignment="Center" Padding=".5" IsChecked="False" Checked="UseAccents_Checked" Unchecked="UseAccents_Unchecked"/>
+                <Label Content="Use accents" Foreground="White" FontFamily="Cascadia Mono" VerticalAlignment="Center" />
             </StackPanel>
 
             <Button x:Name="CloseFile" Padding="0,0,5,0" Content="×" Foreground="White" FontFamily="Cascadia Mono" FontSize="20" Grid.Column="1" Click="CloseFile_Click" Visibility="Collapsed"/>
@@ -108,10 +123,11 @@
                 <TextBlock x:Name="IdLine" Text="1" FontFamily="Cascadia Mono" Padding="5,1" FontSize="14" Background="#282828" Foreground="White" Grid.Column="0" TextAlignment="Center" />
 
                 <TextBox x:Name="Input" Text="Жуля 💕" FontFamily="Cascadia Mono" FontSize="14" Foreground="White" Background="#FF333333" Grid.Column="1" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled" AcceptsReturn="True" TextWrapping="Wrap" TextChanged="Input_TextChanged" BorderBrush="{x:Null}" />
-                <TextBox x:Name="Shadow" Text=" у я 💕" Style="{StaticResource GlowingTextStyle}" FontFamily="Cascadia Mono" FontSize="14" Foreground="DeepSkyBlue" Background="Transparent" AcceptsReturn="True" TextWrapping="Wrap" Grid.Column="1" IsHitTestVisible="False" BorderBrush="{x:Null}" />
+                <TextBox x:Name="Shadow" Text=" у я 💕" Style="{StaticResource GlowingTextStyleTextBox}" FontFamily="Cascadia Mono" FontSize="14" Foreground="DeepSkyBlue" Background="Transparent" AcceptsReturn="True" TextWrapping="Wrap" Grid.Column="1" IsHitTestVisible="False" BorderBrush="{x:Null}" />
 
                 <TextBlock x:Name="OutputStat" Text="3" FontFamily="Cascadia Mono" Padding="5,1" FontSize="14" Background="#282828" Foreground="White" Grid.Column="2" TextAlignment="Center" />
                 <TextBlock x:Name="OutputMsg" FontFamily="Cascadia Mono" FontSize="14" Foreground="White" Grid.Column="3" Grid.ColumnSpan="2" />
+                <TextBlock x:Name="OutputMsgShadow" Visibility="Hidden" Style="{StaticResource GlowingTextStyleTextBlock}" FontFamily="Cascadia Mono" FontSize="14" Foreground="DeepSkyBlue" Background="Transparent" TextWrapping="Wrap" Grid.Column="3" IsHitTestVisible="False" />
 
             </Grid>
 
